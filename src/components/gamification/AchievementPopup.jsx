@@ -56,3 +56,4 @@ const AchievementPopup = ({ achievement, onClose }) => {
 };
 
 export default AchievementPopup;
+

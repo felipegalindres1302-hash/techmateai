@@ -127,3 +127,4 @@ const ExerciseCard = ({
 };
 
 export default ExerciseCard;
+

@@ -32,3 +32,4 @@ const StarRating = ({ stars = 0, maxStars = 3, animated = true, size = 'md' }) =
 };
 
 export default StarRating;
+

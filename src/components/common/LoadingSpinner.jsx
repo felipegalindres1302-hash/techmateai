@@ -30,3 +30,4 @@ const LoadingSpinner = ({ text = 'Cargando diversión...' }) => {
 };
 
 export default LoadingSpinner;
+

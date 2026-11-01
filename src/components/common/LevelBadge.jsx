@@ -41,3 +41,4 @@ const LevelBadge = ({ totalPoints = 0, showProgress = true }) => {
 };
 
 export default LevelBadge;
+

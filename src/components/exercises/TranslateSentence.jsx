@@ -47,3 +47,4 @@ const TranslateSentence = ({
 };
 
 export default TranslateSentence;
+

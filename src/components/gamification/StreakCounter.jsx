@@ -29,3 +29,4 @@ const StreakCounter = ({ days = 0, size = 'md' }) => {
 };
 
 export default StreakCounter;
+

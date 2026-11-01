@@ -35,3 +35,4 @@ const PointsDisplay = ({ points = 0, addedPoints = 0 }) => {
 };
 
 export default PointsDisplay;
+

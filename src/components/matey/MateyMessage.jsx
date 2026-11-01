@@ -64,3 +64,4 @@ const MateyMessage = ({
 };
 
 export default MateyMessage;
+
