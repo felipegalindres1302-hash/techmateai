@@ -1,7 +1,12 @@
 import axios from 'axios';
 
+const rawBaseUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+// Normalizar URL: quitar barras al final y asegurar que termine en /api
+const cleanUrl = rawBaseUrl.replace(/\/+$/, '');
+const baseURL = cleanUrl.endsWith('/api') ? cleanUrl : `${cleanUrl}/api`;
+
 const axiosClient = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api',
+  baseURL,
   headers: {
     'Content-Type': 'application/json',
   },
