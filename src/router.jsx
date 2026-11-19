@@ -11,7 +11,13 @@ import LessonList from './pages/LessonList';
 import LessonView from './pages/LessonView';
 import Profile from './pages/Profile';
 import ParentDashboard from './pages/ParentDashboard';
-import AdminHome from './pages/AdminHome';
+import AdminLayout from './components/admin/AdminLayout';
+import AdminDashboard from './pages/admin/AdminDashboard';
+import AdminLessons from './pages/admin/AdminLessons';
+import AdminLessonForm from './pages/admin/AdminLessonForm';
+import AdminExercises from './pages/admin/AdminExercises';
+import AdminAchievements from './pages/admin/AdminAchievements';
+import AdminSettings from './pages/admin/AdminSettings';
 
 const router = createBrowserRouter([
   {
@@ -90,11 +96,16 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/admin',
-        element: (
-          <Layout>
-            <AdminHome />
-          </Layout>
-        ),
+        element: <AdminLayout />,
+        children: [
+          { index: true, element: <AdminDashboard /> },
+          { path: 'lessons', element: <AdminLessons /> },
+          { path: 'lessons/new', element: <AdminLessonForm /> },
+          { path: 'lessons/:id/edit', element: <AdminLessonForm /> },
+          { path: 'lessons/:id/exercises', element: <AdminExercises /> },
+          { path: 'achievements', element: <AdminAchievements /> },
+          { path: 'settings', element: <AdminSettings /> },
+        ],
       },
     ],
   },
