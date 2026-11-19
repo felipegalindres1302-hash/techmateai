@@ -22,7 +22,16 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to={isAuthenticated ? '/dashboard' : '/'} className="flex items-center gap-2 group">
+          <Link
+            to={
+              isAuthenticated
+                ? user?.role === 'admin'
+                  ? '/admin'
+                  : '/dashboard'
+                : '/'
+            }
+            className="flex items-center gap-2 group"
+          >
             <motion.span
               className="text-3xl"
               animate={{ rotate: [0, 10, -10, 0] }}
@@ -57,6 +66,14 @@ const Header = () => {
                 >
                   👤 Perfil
                 </Link>
+                {user?.role === 'admin' && (
+                  <Link
+                    to="/admin"
+                    className="font-body font-semibold text-dark hover:text-primary-500 transition-colors px-3 py-2 rounded-xl hover:bg-primary-50"
+                  >
+                    🛠️ Admin
+                  </Link>
+                )}
 
                 {/* Stats */}
                 <div className="flex items-center gap-3 bg-accent-50 rounded-2xl px-4 py-2 border-2 border-accent-200">
@@ -148,6 +165,15 @@ const Header = () => {
                   >
                     👤 Perfil
                   </Link>
+                  {user?.role === 'admin' && (
+                    <Link
+                      to="/admin"
+                      onClick={() => setMenuOpen(false)}
+                      className="block font-body font-semibold text-dark hover:text-primary-500 transition-colors px-4 py-3 rounded-xl hover:bg-primary-50 text-lg"
+                    >
+                      🛠️ Admin
+                    </Link>
+                  )}
                   <button
                     onClick={handleLogout}
                     className="w-full bg-error/10 text-error font-display font-semibold py-3 px-4 rounded-2xl hover:bg-error/20 transition-all text-lg"

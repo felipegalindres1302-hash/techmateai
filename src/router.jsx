@@ -11,6 +11,7 @@ import LessonList from './pages/LessonList';
 import LessonView from './pages/LessonView';
 import Profile from './pages/Profile';
 import ParentDashboard from './pages/ParentDashboard';
+import AdminHome from './pages/AdminHome';
 
 const router = createBrowserRouter([
   {
@@ -78,6 +79,20 @@ const router = createBrowserRouter([
         element: (
           <Layout>
             <ParentDashboard />
+          </Layout>
+        ),
+      },
+    ],
+  },
+  // Admin Routes
+  {
+    element: <ProtectedRoute requireRole="admin" />,
+    children: [
+      {
+        path: '/admin',
+        element: (
+          <Layout>
+            <AdminHome />
           </Layout>
         ),
       },

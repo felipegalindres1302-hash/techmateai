@@ -23,7 +23,9 @@ const Login = () => {
     setIsSubmitting(false);
 
     if (result.success) {
-      navigate(from, { replace: true });
+      const destination =
+        result.user?.role === 'admin' ? '/admin' : from;
+      navigate(destination, { replace: true });
     }
   };
 

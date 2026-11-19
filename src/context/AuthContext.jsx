@@ -64,7 +64,7 @@ export const AuthProvider = ({ children }) => {
       const { user: userData, token: authToken } = payload;
       saveAuth(userData, authToken);
       toast.success('¡Bienvenido de vuelta! 🎉');
-      return { success: true };
+      return { success: true, user: userData };
     } catch (error) {
       const message = error.response?.data?.message || 'Error al iniciar sesión';
       toast.error(message);
@@ -79,7 +79,7 @@ export const AuthProvider = ({ children }) => {
       const { user: userData, token: authToken } = payload;
       saveAuth(userData, authToken);
       toast.success('¡Cuenta creada exitosamente! 🚀');
-      return { success: true };
+      return { success: true, user: userData };
     } catch (error) {
       const message = error.response?.data?.message || 'Error al registrarse';
       toast.error(message);
